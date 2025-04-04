@@ -15,13 +15,13 @@ This code block can be run directly within a **HubSpot Custom Code workflow**.
 ```javascript
 const CONFIG = {
     sourceObjectType: 'deal',  // Can be 'deal' or 'contact'.
-    keyword: 'test to search in file name',  // The keyword to search for in attachment names.
+    keyword: 'test to search in file name',  // The keyword to search for in attachment names. Do not include the extension (.pdf, .csv,)
     targetProperty: 'property_id_to_update'  // The property to update with the matching file ID.
 };
 ```
 
 ### Logging Configuration
-Logging is handled by the `logThis` function. You can enable or disable logs by modifying the `loggingConfig` object:
+Logging is handled by the `logThis` function. You can enable or disable logs by modifying the `loggingConfig` object. The logging in this scrpt will exceed Hubspot's 4kb logging limit. It is encouraged that you set these to false once you've complted your setup:
 ```javascript
 const loggingConfig = {
     DEBUG: true,
@@ -76,8 +76,8 @@ The code will return:
 ```javascript
 const CONFIG = {
     sourceObjectType: 'deal',
-    keyword: 'r2 - prq contract',
-    targetProperty: 'contingency_agreement'
+    keyword: 'contract',
+    targetProperty: 'signed_agreement'
 };
 ```
 This configuration will:
