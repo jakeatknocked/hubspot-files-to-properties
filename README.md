@@ -39,6 +39,29 @@ Set any of these values to `false` to suppress logs of that category.
 4. Paste the provided code into the code block.
 5. Define the input properties in your workflow to match the `CONFIG` settings.
 
+## 🔑 Requirements
+
+1. HubSpot Private App
+
+This code requires authentication via a HubSpot Private App. To set up a Private App:
+1.  Go to your HubSpot account and navigate to Settings > Integrations > Private Apps.
+    2.  Click on Create private app.
+    3.  Configure your app name and scopes. You will need:
+        -   Files (Read & Write)
+        -   CRM Objects (Read & Write)
+        -   Engagements (Read)
+    4.  Save your app and copy the Access Token. Keep this token secure!
+
+2. Environment Variable (HUBSPOT_API_KEY)
+
+The code requires an environment variable HUBSPOT_API_KEY to be set.
+-   Within your HubSpot Custom Code Action, this is automatically provided if configured correctly.
+-   For local testing, you need to set the token in your environment.
+
+```javascript
+export HUBSPOT_API_KEY="your_private_app_access_token"
+```
+
 ### Input Properties Required
 - `objectId`: The ID of the deal or contact being processed.
 - `keyword`: The keyword to search for within attachment names.
